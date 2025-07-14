@@ -96,8 +96,8 @@ const cargarTabla = () => {
             <td>${item.tipo}</td>
             <td>${item.tiempo}</td>
             <td>${precioFormateado}</td>
-            <td><img src="./media/edit.png" alt="edit-button" onclick="mostrarModal(${item.id})"></td>
-            <td><img src="./media/delete.png" alt="delete-button" onclick="eliminarGiftCard(${item.id})"></td>  
+            <td><img src="media/edit.png" alt="edit-button" onclick="mostrarModal(${item.id})"></td>
+            <td><img src="media/delete.png" alt="delete-button" onclick="eliminarGiftCard(${item.id})"></td>  
         `;
         fila.innerHTML = celdas;
         dataTable.appendChild(fila);
