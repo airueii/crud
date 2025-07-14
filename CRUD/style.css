@@ -1,0 +1,457 @@
+/* ESTILO GLOBAL DEL BODY === */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+body {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+}
+
+/* TÍTULO PRINCIPAL === */
+.title {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px #fff;
+
+  user-select: none;
+}
+
+/* FORMULARIO CRUD === */
+.crud-form {
+  /* width: 80vh; */
+
+  width: 90%;
+  max-width: 600px;
+
+  margin: 20px auto;
+  background: rgb(44, 44, 44);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border: #000000 3px solid;
+}
+
+.crud-form h3 {
+  color: white;
+  padding: 15px;
+  padding-top: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgb(167, 159, 159);
+  user-select: none;
+}
+
+.crud-form form {
+  margin-top: 0;
+  color: white;
+  background-color: rgb(14, 14, 14);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Filas y columnas del formulario */
+.crud-form form .fila {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.crud-form form .columna {
+  flex: 2;
+}
+
+.crud-form form .columna label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.crud-form form .columna input,
+.crud-form form .columna select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* Campos de entrada */
+.crud-form label {
+  user-select: none;
+}
+
+.crud-form input[type="text"],
+.crud-form input[type="number"] {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Select personalizado */
+.crud-form select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Botón guardar */
+.crud-form .fila-boton {
+  margin-top: 10px;
+}
+
+.crud-form .btn-guardar {
+  background-color: #fff;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+/* TABLA CRUD === */
+
+.crud-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 3px;
+
+  width: 90%;
+  max-width: 600px;
+
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+  text-overflow: ellipsis;
+  overflow-x: auto;
+}
+
+.crud-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.crud-table thead {
+  background-color: #fff;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+/* bordes circulares arriba */
+.crud-table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.crud-table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* abajo */
+.crud-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.crud-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.crud-table th,
+.crud-table td {
+  padding: 10px;
+  width: 150px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* espacio maximo para la primer columna */
+.crud-table th:first-child,
+.crud-table td:first-child {
+  max-width: 150px;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* espacio maximo para la columna de Precio */
+.crud-table th:nth-child(4),
+.crud-table td:nth-child(4) {
+  max-width: 100px;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* bordecitos internos */
+.crud-table td:not(:first-child) {
+  border-left: 1px solid #fff;
+}
+
+.crud-table tr:not(:last-child) {
+  border-bottom: 1px solid #fff;
+}
+
+/* Colores de las celdas */
+.crud-table td {
+  color: white;
+  background-color: rgb(14, 14, 14);
+}
+
+/* Botones como imágenes */
+.crud-table table tbody tr img {
+  filter: invert(1);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  /* centrar */
+  display: block;
+  margin: 0 auto;
+}
+
+/* MODAL === */
+
+.modal {
+  display: none;
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 1; /* Por encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+}
+
+/* 
+
+clases a estilizar:
+  modal-content
+  modal-header {
+    close (boton para cerrar)
+    h3 (titulo del modal)
+  }
+  modal-body
+  {
+    form -> formModal
+    {
+      fila (div)
+      {
+        columna (div)
+        {
+          label
+          input/select
+        }
+      }
+      fila-boton (div)
+      {
+        btn-guardar (boton)
+      }
+    }
+  }
+
+*/
+
+.modal-content {
+  user-select: none;
+  background-color: rgb(44, 44, 44);
+  margin: 15% auto; /* Centrado vertical y horizontal */
+  padding-top: 10px;
+  width: 80%; /* Ancho del modal */
+  max-width: 600px; /* Ancho máximo del modal */
+  border: #000000 3px solid;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* header */
+
+.modal-header {
+  display: flex;
+  padding: 5px 10px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #ffffff;
+  text-align: left;
+  flex: 1;
+  display: block;
+}
+
+.modal-header .close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+  align-self: flex-start;
+}
+
+.modal-header .close:hover,
+.modal-header .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* body */
+
+.modal-body {
+  padding: 20px;
+  background-color: rgb(14, 14, 14);
+  border-radius: 0 0 12px 12px;
+  border-top: #ffffff 1px solid;
+  color: white;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* filas */
+
+.modal-body form .fila {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+/* columnas */
+
+.modal-body form .columna {
+  flex: 2;
+}
+
+/* input/select */
+
+.modal-body form .columna label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modal-body form .columna input,
+.modal-body form .columna select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* boton de guardar */
+
+.modal-body form .fila-boton {
+  margin-top: 10px;
+}
+
+.modal-body form .btn-guardar {
+  background-color: #fff;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  border: #ffffff7c 1px solid;
+}
+
+/* Botón guardar en el modal */
+.modal-body form .btn-guardar:hover {
+  background-color: #000000;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* MEDIA QUERY ===*/
+
+@media (max-width: 600px) {
+  .crud-form form .fila {
+    flex-direction: column;
+  }
+
+  .crud-form form .columna input,
+  .crud-form form .columna select {
+    width: 100px;
+    min-width: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    min-width: 300px;
+    max-width: 100px;
+  }
+
+  .crud-table th,
+  .crud-table td {
+    font-size: 0.8rem;
+    width: auto;
+    max-width: none;
+  }
+
+  .crud-table,
+  .crud-form,
+  .title {
+    overflow-x: auto;
+    min-width: 400px;
+  }
+
+  .crud-table th:first-child,
+  .crud-table td:first-child {
+    max-width: 100px;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* queria hacer como que aparecieran los botones en hover pero ocupo moverle cosas al html, que hueva */
+  /* .crud-table th:last-child,
+  .crud-table td:last-child,
+  .crud-table th:nth-child(5),
+  .crud-table td:nth-child(5) {
+    display: none;
+  } */
+
+  /* mis bordecitos arreglaos */
+  /* .crud-table tbody tr:last-child td:nth-child(4) {
+    border-bottom-right-radius: 12px;
+  }
+  .crud-table thead tr:last-child th:nth-child(4) {
+    border-top-right-radius: 12px;
+  } */
+}

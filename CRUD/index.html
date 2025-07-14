@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- title for the crud with a class called title -->
+    <div class="title">CRUD</div>
+    <!-- form for creating new data in a table-->
+    <div class="crud-form">
+      <h3>Agregar nueva Gift Card</h3>
+      <form id="crud-form">
+        <!-- primer fila primer columna-->
+        <div class="fila">
+          <!-- label que diga gift y un input type text class form-control id gift required  -->
+          <div class="columna">
+            <label>Regalo</label>
+            <input type="text" class="form-control" id="gift" required />
+          </div>
+          <!-- primer fila segunda columna, label que diga Tipo, etiqueta select con id="tipo", class form-control. Que tenga de opciones "Subscripcion" y "Compra"-->
+          <div class="columna">
+            <label>Tipo</label>
+            <select id="tipo" class="form-control">
+              <option value="Subscripcion">Subscripción</option>
+              <option value="Compra">Compra</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- segunda fila primer columna -->
+        <div class="fila">
+          <div class="columna">
+            <!-- label de tiempo y etiqueta select con id="tiempo", class form-control y 3 opciones: 1 mes, 3 meses y 5 meses. -->
+            <label>Tiempo</label>
+            <select id="tiempo" class="form-control">
+              <option value="1 mes">1 mes</option>
+              <option value="3 meses">3 meses</option>
+              <option value="5 meses">5 meses</option>
+            </select>
+          </div>
+          <!-- segunda fila segunda columna, label de Precio con un input type="number", misma clase de form-control, id de precio y required -->
+          <div class="columna">
+            <label>Precio</label>
+            <input type="number" class="form-control" id="precio" required />
+          </div>
+        </div>
+
+        <!-- tercer fila primer columna -->
+        <div class="fila">
+          <div class="columna">
+            <!-- input tipo texto clase form-control required, placeholder="URL de la imagen de giftcard", id "imagen" -->
+            <input
+              type="text"
+              class="form-control"
+              id="imagen"
+              placeholder="URL de la imagen"
+              required
+            />
+          </div>
+        </div>
+        <div class="fila-boton">
+          <!-- boton de guardar -->
+          <button type="submit" class="btn-guardar" id="btn-guardar">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- creation of the table for update and delete -->
+    <div class="crud-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Regalo</th>
+            <th>Tipo</th>
+            <th>Tiempo</th>
+            <th>Precio</th>
+            <th id="edit-button"></th>
+            <th id="delete-button"></th>
+          </tr>
+        </thead>
+        <tbody id="data-table">
+          <!-- Data rows will be inserted here -->
+          <!-- <tr>
+            <td>Gift Card Example</td>
+            <td>Subscripción</td>
+            <td>1 mes</td>
+            <td>$10.00</td>
+            <td><img src="/CRUD/media/edit.png" alt="edit-button"></td>
+            <td><img src="/CRUD/media/delete.png" alt="delete-button"></td>
+          </tr>
+          <tr>
+            <td>Gift Card Example 2 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</td>
+            <td>Compra</td>
+            <td>3 meses</td>
+            <td>$3000000.00</td>
+            <td><img src="/CRUD/media/edit.png" alt="edit-button"></td>
+            <td><img src="/CRUD/media/delete.png" alt="delete-button"></td>
+          </tr>
+          <tr>
+            <td>Gift Card Example 3</td>
+            <td>Subscripción</td>
+            <td>5 meses</td>
+            <td>$500000000000000000000000.00</td>
+            <td><img src="/CRUD/media/edit.png" alt="edit-button"></td>
+            <td><img src="/CRUD/media/delete.png" alt="delete-button"></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- modal para el boton de editar-->
+    <div class="modal" id="modal-gift">
+      <!-- notas pa css q en el video dice que tiene la clase modal fade de bootstrap,
+      tabindex -1, aria-labelledby="moidalGiftLabel"
+      aria-hidden="true" -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Editar Gift Card</h3>
+          <span class="close" onclick="ocultarModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- form para editar la gift card, id="form-modal" -->
+          <form id="formModal">
+            <div class="fila">
+              <div class="columna">
+                <!-- celda de el nombre del regalo -->
+                <label>Gift</label>
+                <input
+                  type="text"
+                  id="edit-gift"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="columna">
+                <label>Tipo</label>
+                <select id="edit-tipo" class="form-control">
+                  <option value="Subscripcion">Subscripción</option>
+                  <option value="Compra">Compra</option>
+                </select>
+              </div>
+            </div>
+            <div class="fila">
+              <div class="columna">
+                <label>Tiempo</label>
+                <select id="edit-tiempo" class="form-control">
+                  <option value="1 mes">1 mes</option>
+                  <option value="3 meses">3 meses</option>
+                  <option value="5 meses">5 meses</option>
+                </select>
+              </div>
+              <div class="columna">
+                <label>Precio</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="edit-precio"
+                  required
+                />
+              </div>
+            </div>
+            <div class="fila">
+              <div class="columna">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="edit-imagen"
+                  placeholder="URL de la imagen"
+                  required
+                />
+              </div>
+            </div>
+            <div class="fila-boton">
+              <button type="submit" class="btn-guardar" id="btn-edit">
+                Actualizar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- script pal crud -->
+    <script src="./js/app.js" type="module"></script>
+  </body>
+</html>

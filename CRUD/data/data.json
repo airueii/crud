@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "gift": "Spotify Premium",
+    "tipo": "Subscripcion",
+    "tiempo": "1 mes",
+    "precio": 7.00,
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_714537-MLA53061400161_122022-V.jpg"
+  },
+  {
+    "id": 2,
+    "gift": "XBOX 10 USD",
+    "tipo": "Compra",
+    "tiempo": null,
+    "precio": 10.00,
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_991054-MLA44207335557_112020-O.jpg"
+  },
+  {
+    "id": 3,
+    "gift": "HBO Max",
+    "tipo": "Subscripcion",
+    "tiempo": "3 meses",
+    "precio": 10.00,
+    "imagen": "https://i0.wp.com/fhalcongaming.com/wp-content/uploads/2021/07/GIFTC0109_1.png?fit=1080%2C1080&ssl=1"
+  },
+  {
+    "id": 4,
+    "gift": "Netflix",
+    "tipo": "Subscripcion",
+    "tiempo": "3 meses",
+    "precio": 15.00,
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_884573-MLU78818423330_092024-O.webp"
+  },
+  {
+    "id": 5,
+    "gift": "Steam Gift Card",
+    "tipo": "Compra",
+    "tiempo": null,
+    "precio": 50.00,
+    "imagen": "https://m.media-amazon.com/images/I/815jDkv65fL._UF1000,1000_QL80_.jpg"
+  }
+]
