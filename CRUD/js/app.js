@@ -6,10 +6,10 @@ const dataTable = document.querySelector("#data-table");
 const myModal = document.getElementById("modal-gift");
 
 let idGiftUpdate = null; // Variable para almacenar el ID de la gift card a actualizar
+let tiempo = null; // Variable para almacenar el tiempo de la gift card
 
 myModal.show = function() {
     this.classList.add("show"); // Se ve con transición
-
     document.body.classList.add("modal-open");
 };
 
@@ -23,30 +23,31 @@ myModal.hide = function() {
 window.mostrarModal = (id) => {
     idGiftUpdate = id;
     let index = datos.findIndex((item) => item.id === idGiftUpdate);
-    // console.log(id);
+    
     document.querySelector("#edit-gift").value = datos[index].gift;
     document.querySelector("#edit-tipo").value = datos[index].tipo;
-    document.querySelector("#edit-tiempo").value = datos[index].tiempo || "";
-    document.querySelector("#edit-precio").value = datos[index].precio || 0;
-    document.querySelector("#edit-imagen").value = datos[index].imagen || "";
+    document.querySelector("#edit-tiempo").value = datos[index].tiempo;
+    document.querySelector("#edit-precio").value = datos[index].precio;
+    document.querySelector("#edit-imagen").value = datos[index].imagen;
 
+    checkTipo();
+    myModal.show();
+}
+
+const checkTipo = () => {
     // Habilita el campo antes de actualizarlo
     document.querySelector("#edit-tiempo").disabled = false;
-
-    if(document.querySelector("#edit-tipo").value === "Compra") {
+    
+    // Si el tipo es "Compra", deshabilita el campo de tiempo y lo limpia
+    if (document.querySelector("#edit-tipo").value === "Compra") {
+        tiempo = document.querySelector("#edit-tiempo").value;
         document.querySelector("#edit-tiempo").disabled = true;
-    }
-
-    // Detecta cambios instantáneos en el select para habilitar/deshabilitar
-    document.querySelector("#edit-tipo").addEventListener("change", function() {
-        document.querySelector("#edit-tiempo").disabled = false;
-        if(this.value === "Compra") {
-            document.querySelector("#edit-tiempo").disabled = true;
-            document.querySelector("#edit-tiempo").value = "";
+        document.querySelector("#edit-tiempo").value = "";
+    } else {
+        if (tiempo !== null) {
+            document.querySelector("#edit-tiempo").value = tiempo;
         }
-    });
-
-    myModal.show();
+    }
 }
 
 const giftUpdate = (event) => {
@@ -127,3 +128,4 @@ cargarTabla();
 
 document.querySelector("#crud-form").addEventListener("submit", agregarGiftCard);
 document.querySelector("#formModal").addEventListener("submit", giftUpdate)
+document.querySelector("#edit-tipo").addEventListener("change", checkTipo);
