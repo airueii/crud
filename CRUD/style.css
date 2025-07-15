@@ -13,6 +13,25 @@ body {
   /* overflow: hidden; */
 }
 
+/* BG VIDEO */
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  scale: 1.2;
+  filter: blur(8px) brightness(1.75);
+}
+.background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* TÍTULO PRINCIPAL === */
 .title {
   color: #fff;
