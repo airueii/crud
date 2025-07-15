@@ -259,7 +259,12 @@ body {
 /* MODAL === */
 
 .modal {
-  display: none;
+  /* display: none; */
+  /* sustituto para display: none */
+
+  opacity: 0;
+  visibility: hidden; 
+
   position: fixed; /* Fijo en la pantalla */
   z-index: 1; /* Por encima de otros elementos */
   left: 0;
@@ -267,6 +272,16 @@ body {
   width: 100%; /* Ancho completo */
   height: 100%; /* Alto completo */
   background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+
+  /* Pasar estilos del javacript */
+  transition: all 0.2s ease;
+
+}
+
+.modal.show {
+  /* Mostrar el modal */
+  opacity: 1; 
+  visibility: visible;
 }
 
 /* 

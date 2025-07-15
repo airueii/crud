@@ -7,28 +7,17 @@ const myModal = document.getElementById("modal-gift");
 
 let idGiftUpdate = null; // Variable para almacenar el ID de la gift card a actualizar
 
-// transicion pal modal
-myModal.style.transition = "all 0.2s ease";
-myModal.style.opacity = 0;
-myModal.style.display = "none";
-
 myModal.show = function() {
-    this.style.display = "block";
-    setTimeout(() => {
-        this.style.opacity = 1;
-    }, 10);
+    this.classList.add("show"); // Se ve con transición
+
     document.body.classList.add("modal-open");
 };
 
 myModal.hide = function() {
     // limpiar idGiftUpdate
     idGiftUpdate = null;
-    this.style.opacity = 0;
-    this.addEventListener("transitionend", function handler() {
-        myModal.style.display = "none";
-        document.body.classList.remove("modal-open");
-        myModal.removeEventListener("transitionend", handler);
-    });
+    this.classList.remove("show"); // Se oculta con transición
+    document.body.classList.remove("modal-open");
 };
 
 window.mostrarModal = (id) => {
