@@ -5,7 +5,7 @@ import { GiftCard } from "./clases.js";
 const dataTable = document.querySelector("#data-table");
 const myModal = document.getElementById("modal-gift");
 
-let idGiftUpdate = null;
+let idGiftUpdate = null; // Variable para almacenar el ID de la gift card a actualizar
 
 // transicion pal modal
 myModal.style.transition = "all 0.2s ease";
@@ -21,6 +21,8 @@ myModal.show = function() {
 };
 
 myModal.hide = function() {
+    // limpiar idGiftUpdate
+    idGiftUpdate = null;
     this.style.opacity = 0;
     this.addEventListener("transitionend", function handler() {
         myModal.style.display = "none";
@@ -80,6 +82,7 @@ window.ocultarModal = () => {
 
 const cargarTabla = () => {
     dataTable.innerHTML = ""; // Clear tabla antes de mapear
+
     datos.map((item) => {
         const fila = document.createElement("tr");
         if (item.tiempo === null || item.tiempo === undefined) {
@@ -129,8 +132,6 @@ window.eliminarGiftCard = (id) => {
         cargarTabla();
     }
 }
-
-window.editarGiftCard = (id) => {}
 
 
 cargarTabla();
