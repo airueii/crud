@@ -20,6 +20,10 @@ myModal.hide = function() {
     document.body.classList.remove("modal-open");
 };
 
+window.ocultarModal = () => {
+    myModal.hide();
+}
+
 window.mostrarModal = (id) => {
     idGiftUpdate = id;
     let index = datos.findIndex((item) => item.id === idGiftUpdate);
@@ -37,7 +41,7 @@ window.mostrarModal = (id) => {
 const checkTipo = () => {
     // Habilita el campo antes de actualizarlo
     document.querySelector("#edit-tiempo").disabled = false;
-    
+
     // Si el tipo es "Compra", deshabilita el campo de tiempo y lo limpia
     if (document.querySelector("#edit-tipo").value === "Compra") {
         tiempo = document.querySelector("#edit-tiempo").value;
@@ -64,10 +68,6 @@ const giftUpdate = (event) => {
     cargarTabla();
     myModal.hide();
 
-}
-
-window.ocultarModal = () => {
-    myModal.hide();
 }
 
 const cargarTabla = () => {
@@ -122,7 +122,6 @@ window.eliminarGiftCard = (id) => {
         cargarTabla();
     }
 }
-
 
 cargarTabla();
 
