@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="crud-container">
+      <!-- Video de fondo -->
+      <div class="background-video">
+        <video src="media/background_video.mp4" loop muted autoplay></video>
+      </div>
+
+      <!-- Título principal -->
+      <div class="title">CRUD</div>
+
+      <!-- Formulario de registro -->
+      <div class="crud-form">
+        <h3>Agregar nueva Gift Card</h3>
+        <form id="crud-form">
+          <div class="fila">
+            <div class="columna">
+              <label for="gift">Regalo</label>
+              <input type="text" id="gift" class="form-control" required />
+            </div>
+            <div class="columna">
+              <label for="tipo">Tipo</label>
+              <select id="tipo" class="form-control">
+                <option value="Subscripcion">Subscripción</option>
+                <option value="Compra">Compra</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fila">
+            <div class="columna">
+              <label for="tiempo">Tiempo</label>
+              <select id="tiempo" class="form-control">
+                <option value="1 mes">1 mes</option>
+                <option value="3 meses">3 meses</option>
+                <option value="5 meses">5 meses</option>
+              </select>
+            </div>
+            <div class="columna">
+              <label for="precio">Precio</label>
+              <input type="number" id="precio" class="form-control" required />
+            </div>
+          </div>
+
+          <div class="fila">
+            <div class="columna">
+              <input
+                type="text"
+                id="imagen"
+                class="form-control"
+                placeholder="URL de la imagen"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="fila-boton">
+            <button type="submit" id="btn-guardar" class="btn-guardar">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tabla para visualizar registros -->
+      <div class="crud-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Regalo</th>
+              <th>Tipo</th>
+              <th>Tiempo</th>
+              <th>Precio</th>
+              <th id="edit-button"></th>
+              <th id="delete-button"></th>
+            </tr>
+          </thead>
+          <tbody id="data-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal para editar gift card -->
+    <div class="modal" id="modal-gift">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Editar Gift Card</h3>
+          <span class="close" onclick="ocultarModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="formModal">
+            <div class="fila">
+              <div class="columna">
+                <label for="edit-gift">Gift</label>
+                <input
+                  type="text"
+                  id="edit-gift"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="columna">
+                <label for="edit-tipo">Tipo</label>
+                <select id="edit-tipo" class="form-control">
+                  <option value="Subscripcion">Subscripción</option>
+                  <option value="Compra">Compra</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="fila">
+              <div class="columna">
+                <label for="edit-tiempo">Tiempo</label>
+                <select id="edit-tiempo" class="form-control">
+                  <option value="1 mes">1 mes</option>
+                  <option value="3 meses">3 meses</option>
+                  <option value="5 meses">5 meses</option>
+                </select>
+              </div>
+              <div class="columna">
+                <label for="edit-precio">Precio</label>
+                <input
+                  type="number"
+                  id="edit-precio"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="fila">
+              <div class="columna">
+                <input
+                  type="text"
+                  id="edit-imagen"
+                  class="form-control"
+                  placeholder="URL de la imagen"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="fila-boton">
+              <button type="submit" id="btn-edit" class="btn-guardar">
+                Actualizar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script principal -->
+    <script src="./js/app.js" type="module"></script>
+  </body>
+</html>

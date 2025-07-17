@@ -1,20 +1,16 @@
-/* ESTILO GLOBAL DEL BODY === */
-
-body.modal-open {
-  overflow: hidden;
-}
-
+/* === GLOBAL BODY === */
 body {
   background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
+}
+body.modal-open {
+  overflow: hidden;
 }
 
-/* BG VIDEO */
-
+/* === BACKGROUND VIDEO === */
 .background-video {
   position: fixed;
   top: 0;
@@ -32,114 +28,89 @@ body {
   object-fit: cover;
 }
 
-/* TÍTULO PRINCIPAL === */
+/* === TÍTULO === */
 .title {
   color: #fff;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  align-items: center;
-
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 2px;
   text-shadow: 0 0 12px #fff;
-
   user-select: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* FORMULARIO CRUD === */
+/* === FORMULARIO CRUD === */
 .crud-form {
-  /* width: 80vh; */
-
-  width: 90%;
+  width: 100%;
   max-width: 600px;
-
   margin: 20px auto;
-  background: rgb(44, 44, 44);
+  background: #2c2c2c;
+  border: 3px solid #000;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  border: #000000 3px solid;
 }
-
 .crud-form h3 {
   color: white;
-  padding: 15px;
-  padding-top: 0;
+  padding: 0 15px 15px 15px;
   margin-bottom: 0;
   border-bottom: 1px solid rgb(167, 159, 159);
   user-select: none;
 }
-
 .crud-form form {
   margin-top: 0;
-  color: white;
-  background-color: rgb(14, 14, 14);
   padding: 20px;
+  color: white;
+  background-color: #0e0e0e;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
-/* Filas y columnas del formulario */
-.crud-form form .fila {
+.crud-form label {
+  user-select: none;
+  font-weight: bold;
+}
+.crud-form input[type="text"],
+.crud-form input[type="number"],
+.crud-form select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.crud-form input[type="text"],
+.crud-form input[type="number"] {
+  border: 1px solid #fff;
+}
+.crud-form select {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+.crud-form .fila {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
-
-.crud-form form .columna {
+.crud-form .columna {
   flex: 2;
 }
-
-.crud-form form .columna label {
-  display: block;
+.crud-form .columna label {
   margin-bottom: 5px;
-  font-weight: bold;
+  display: block;
 }
-
-.crud-form form .columna input,
-.crud-form form .columna select {
+.crud-form .columna input,
+.crud-form .columna select {
   width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 1rem;
 }
-
-/* Campos de entrada */
-.crud-form label {
-  user-select: none;
-}
-
-.crud-form input[type="text"],
-.crud-form input[type="number"] {
-  border: 1px solid #fff;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-/* Select personalizado */
-.crud-form select {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #000;
-}
-
-/* Botón guardar */
 .crud-form .fila-boton {
   margin-top: 10px;
 }
-
 .crud-form .btn-guardar {
   background-color: #fff;
   color: black;
@@ -150,304 +121,198 @@ body {
   float: right;
 }
 
-/* TABLA CRUD === */
-
+/* === TABLA CRUD === */
 .crud-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
-  padding: 3px;
-
-  width: 90%;
-  max-width: 600px;
-
   background: #000;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-
-  text-overflow: ellipsis;
   overflow-x: auto;
+  text-overflow: ellipsis;
 }
-
 .crud-table table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .crud-table thead {
   background-color: #fff;
   font-weight: bold;
   border-bottom: 1px solid #ddd;
 }
-
-/* bordes circulares arriba */
 .crud-table thead th:first-child {
   border-top-left-radius: 12px;
 }
-
 .crud-table thead th:last-child {
   border-top-right-radius: 12px;
 }
-
-/* abajo */
 .crud-table tbody tr:last-child td:first-child {
   border-bottom-left-radius: 12px;
 }
-
 .crud-table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 12px;
 }
-
 .crud-table th,
 .crud-table td {
   padding: 10px;
-  width: 150px;
-  max-width: 150px;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
-  text-align: left;
 }
-
-/* espacio maximo para la primer columna */
 .crud-table th:first-child,
 .crud-table td:first-child {
   max-width: 150px;
   width: 100px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
-
-/* espacio maximo para la columna de Precio */
 .crud-table th:nth-child(4),
 .crud-table td:nth-child(4) {
   max-width: 100px;
   width: 100px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
-
-/* bordecitos internos */
+.crud-table td {
+  background-color: #0e0e0e;
+  color: white;
+}
 .crud-table td:not(:first-child) {
   border-left: 1px solid #fff;
 }
-
 .crud-table tr:not(:last-child) {
   border-bottom: 1px solid #fff;
 }
-
-/* Colores de las celdas */
-.crud-table td {
-  color: white;
-  background-color: rgb(14, 14, 14);
-}
-
-/* Botones como imágenes */
-.crud-table table tbody tr img {
+.crud-table img {
   filter: invert(1);
   width: 30px;
   height: 30px;
-  cursor: pointer;
-  /* centrar */
   display: block;
   margin: 0 auto;
+  cursor: pointer;
 }
 
-/* MODAL === */
-
+/* === MODAL === */
 .modal {
-  /* display: none; */
-  /* sustituto para display: none */
-
-  opacity: 0;
-  visibility: hidden; 
-
-  position: fixed; /* Fijo en la pantalla */
-  z-index: 1; /* Por encima de otros elementos */
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Ancho completo */
-  height: 100%; /* Alto completo */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
-
-  /* Pasar estilos del javacript */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.2s ease;
-
 }
-
 .modal.show {
-  /* Mostrar el modal */
-  opacity: 1; 
+  opacity: 1;
   visibility: visible;
 }
-
-/* 
-
-clases a estilizar:
-  modal-content
-  modal-header {
-    close (boton para cerrar)
-    h3 (titulo del modal)
-  }
-  modal-body
-  {
-    form -> formModal
-    {
-      fila (div)
-      {
-        columna (div)
-        {
-          label
-          input/select
-        }
-      }
-      fila-boton (div)
-      {
-        btn-guardar (boton)
-      }
-    }
-  }
-
-*/
-
 .modal-content {
-  user-select: none;
-  background-color: rgb(44, 44, 44);
-  margin: 15% auto; /* Centrado vertical y horizontal */
+  background-color: #2c2c2c;
+  margin: 15% auto;
   padding-top: 10px;
-  width: 80%; /* Ancho del modal */
-  max-width: 600px; /* Ancho máximo del modal */
-  border: #000000 3px solid;
+  width: 80%;
+  max-width: 600px;
+  border: 3px solid #000;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  user-select: none;
 }
-
-/* header */
-
 .modal-header {
   display: flex;
   padding: 5px 10px;
   justify-content: space-between;
   align-items: center;
-  gap: 0;
 }
-
 .modal-header h3 {
   margin: 0;
-  color: #ffffff;
-  text-align: left;
+  color: #fff;
   flex: 1;
-  display: block;
 }
-
 .modal-header .close {
-  color: #aaa;
   font-size: 28px;
   font-weight: bold;
+  color: #aaa;
   cursor: pointer;
-  margin-left: auto;
-  align-self: flex-start;
 }
-
 .modal-header .close:hover,
 .modal-header .close:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer;
 }
-
-/* body */
-
 .modal-body {
   padding: 20px;
-  background-color: rgb(14, 14, 14);
+  background-color: #0e0e0e;
   border-radius: 0 0 12px 12px;
-  border-top: #ffffff 1px solid;
+  border-top: 1px solid #fff;
   color: white;
 }
-
 .modal-body form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
-/* filas */
-
-.modal-body form .fila {
+.modal-body .fila {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
-
-/* columnas */
-
-.modal-body form .columna {
+.modal-body .columna {
   flex: 2;
 }
-
-/* input/select */
-
-.modal-body form .columna label {
+.modal-body .columna label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
-
-.modal-body form .columna input,
-.modal-body form .columna select {
+.modal-body .columna input,
+.modal-body .columna select {
   width: 100%;
   padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
   font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-
-/* boton de guardar */
-
-.modal-body form .fila-boton {
+.modal-body .fila-boton {
   margin-top: 10px;
 }
-
-.modal-body form .btn-guardar {
+.modal-body .btn-guardar {
   background-color: #fff;
   color: black;
   padding: 10px 15px;
-  border: none;
   border-radius: 4px;
+  border: 1px solid #ffffff7c;
   cursor: pointer;
   float: right;
-  border: #ffffff7c 1px solid;
-}
-
-/* Botón guardar en el modal */
-.modal-body form .btn-guardar:hover {
-  background-color: #000000;
-  color: #fff;
   transition: all 0.3s ease;
 }
+.modal-body .btn-guardar:hover {
+  background-color: #000;
+  color: #fff;
+}
 
-/* MEDIA QUERY ===*/
-
+/* === RESPONSIVE === */
 @media (max-width: 600px) {
-  .crud-form form .fila {
+  .crud-form form .fila,
+  .modal-body form .fila {
     flex-direction: column;
   }
 
   .crud-form form .columna input,
   .crud-form form .columna select {
-    width: 100px;
-    min-width: 0;
-    box-sizing: border-box;
-    font-size: 1rem;
     min-width: 300px;
     max-width: 100px;
+    width: 100px;
+    font-size: 1rem;
+    box-sizing: border-box;
   }
 
   .crud-table th,
@@ -468,24 +333,6 @@ clases a estilizar:
   .crud-table td:first-child {
     max-width: 100px;
     width: 100px;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  /* queria hacer como que aparecieran los botones en hover pero ocupo moverle cosas al html, que hueva */
-  /* .crud-table th:last-child,
-  .crud-table td:last-child,
-  .crud-table th:nth-child(5),
-  .crud-table td:nth-child(5) {
-    display: none;
-  } */
-
-  /* mis bordecitos arreglaos */
-  /* .crud-table tbody tr:last-child td:nth-child(4) {
-    border-bottom-right-radius: 12px;
-  }
-  .crud-table thead tr:last-child th:nth-child(4) {
-    border-top-right-radius: 12px;
-  } */
 }

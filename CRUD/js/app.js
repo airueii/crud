@@ -38,18 +38,34 @@ window.mostrarModal = (id) => {
     myModal.show();
 }
 
-const checkTipo = () => {
+const checkTipo = (modal) => {
     // Habilita el campo antes de actualizarlo
-    document.querySelector("#edit-tiempo").disabled = false;
+    if (modal) {
+        // Si el tipo es "Compra", deshabilita el campo de tiempo y lo limpia
+        document.querySelector("#edit-tiempo").disabled = false;
 
-    // Si el tipo es "Compra", deshabilita el campo de tiempo y lo limpia
-    if (document.querySelector("#edit-tipo").value === "Compra") {
-        tiempo = document.querySelector("#edit-tiempo").value;
-        document.querySelector("#edit-tiempo").disabled = true;
-        document.querySelector("#edit-tiempo").value = "";
-    } else {
-        if (tiempo !== null) {
-            document.querySelector("#edit-tiempo").value = tiempo;
+        if (document.querySelector("#edit-tipo").value === "Compra") {
+            tiempo = document.querySelector("#edit-tiempo").value;
+            document.querySelector("#edit-tiempo").disabled = true;
+            document.querySelector("#edit-tiempo").value = "";
+        } else {
+            if (tiempo !== null) {
+                document.querySelector("#edit-tiempo").value = tiempo;
+                tiempo = null;
+            }
+        }
+    } else if (!modal) {
+        document.querySelector("#tiempo").disabled = false;
+
+        if (document.querySelector("#tipo").value === "Compra") {
+            tiempo = document.querySelector("#tiempo").value;
+            document.querySelector("#tiempo").disabled = true;
+            document.querySelector("#tiempo").value = "";
+        } else {
+            if (tiempo !== null) {
+                document.querySelector("#tiempo").value = tiempo;
+                tiempo = null; //limpieza je
+            }
         }
     }
 }
@@ -127,4 +143,5 @@ cargarTabla();
 
 document.querySelector("#crud-form").addEventListener("submit", agregarGiftCard);
 document.querySelector("#formModal").addEventListener("submit", giftUpdate)
-document.querySelector("#edit-tipo").addEventListener("change", checkTipo);
+document.querySelector("#edit-tipo").addEventListener("change", () => checkTipo(true));
+document.querySelector("#tipo").addEventListener("change", () => checkTipo(false));
