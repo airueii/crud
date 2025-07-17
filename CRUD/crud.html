@@ -4,20 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRUD</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      .text-glow {
+        text-shadow: 0 0 12px #fff;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-black flex flex-col items-center justify-center">
     <div class="crud-container">
       <!-- Video de fondo -->
-      <div class="background-video">
-        <video src="media/background_video.mp4" loop muted autoplay></video>
+      <div
+        class="background-video fixed top-0 left-0 w-screen h-screen z-[-1] overflow-hidden scale-[1.2] blur-sm brightness-[1.75]"
+      >
+        <video
+          src="media/background_video.mp4"
+          loop
+          muted
+          autoplay
+          class="w-full h-full object-cover"
+        ></video>
       </div>
 
       <!-- Título principal -->
-      <div class="title">CRUD</div>
+      <div
+        class="title text-white text-[2rem] font-bold tracking-[2px] text-glow select-none mx-auto flex justify-center items-center"
+      >
+        CRUD
+      </div>
 
       <!-- Formulario de registro -->
-      <div class="crud-form">
+      <div class="crud-form w-full max-w-[600px] mx-[20px] mv-auto">
         <h3>Agregar nueva Gift Card</h3>
         <form id="crud-form">
           <div class="fila">
@@ -158,6 +176,6 @@
     </div>
 
     <!-- Script principal -->
-    <script src="./js/app.js" type="module"></script>
+    <script src="./js/crud-app.js" type="module"></script>
   </body>
 </html>

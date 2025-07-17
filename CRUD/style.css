@@ -1,4 +1,4 @@
-/* === GLOBAL BODY === */
+/* === GLOBAL BODY === ☑️☑️*/
 body {
   background-color: #000;
   display: flex;
@@ -10,7 +10,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* === BACKGROUND VIDEO === */
+/* === BACKGROUND VIDEO === ☑️☑️*/
 .background-video {
   position: fixed;
   top: 0;
@@ -28,7 +28,7 @@ body.modal-open {
   object-fit: cover;
 }
 
-/* === TÍTULO === */
+/* === TÍTULO === ☑️*/
 .title {
   color: #fff;
   font-size: 2rem;
@@ -209,6 +209,7 @@ body.modal-open {
   visibility: hidden;
   transition: all 0.2s ease;
 }
+/* ☑️ */
 .modal.show {
   opacity: 1;
   visibility: visible;
