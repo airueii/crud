@@ -12,7 +12,7 @@
       }
     </style>
   </head>
-  <body class="bg-black flex flex-col items-center justify-center">
+  <body class="bg-black flex flex-col items-center justify-center font-serif">
     <div class="crud-container">
       <!-- Video de fondo -->
       <div
@@ -35,52 +35,97 @@
       </div>
 
       <!-- Formulario de registro -->
-      <div class="crud-form w-full max-w-[600px] mx-[20px] mv-auto">
-        <h3>Agregar nueva Gift Card</h3>
-        <form id="crud-form">
-          <div class="fila">
-            <div class="columna">
-              <label for="gift">Regalo</label>
-              <input type="text" id="gift" class="form-control" required />
+      <div
+        class="crud-form w-full max-w-[600px] mx-auto my-[20px] bg-[#2c2c2c] border-[3px] border-black rounded-xl overflow-hidden shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+      >
+        <h3
+          class="text-[1.17em] font-semibold mt-[18.720px] block text-white p-[0_15px_15px_15px] mb-[0] border-b border-b-[rgb(167,159,159)] select-none"
+        >
+          Agregar nueva Gift Card
+        </h3>
+        <form
+          id="crud-form"
+          class="mt-0 p-[20px] font-sans text-white bg-[#0e0e0e] flex flex-col gap-[15px]"
+        >
+          <div class="fila flex content-space-between items-center gap-[15px]">
+            <div class="columna flex-2">
+              <label
+                for="gift"
+                class="font-serif select-none font-bold mb-[5px] block"
+                >Regalo</label
+              >
+              <input
+                type="text"
+                id="gift"
+                class="form-control w-full text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white"
+                required
+              />
             </div>
-            <div class="columna">
-              <label for="tipo">Tipo</label>
-              <select id="tipo" class="form-control">
+            <div class="columna flex-2">
+              <label
+                for="tipo"
+                class="font-serif select-none font-bold mb-[5px] block"
+                >Tipo</label
+              >
+              <select
+                id="tipo"
+                class="form-control w-full text-black bg-white border border-solid border-white w-full p-[5px] rounded-sm text-base box-border"
+              >
                 <option value="Subscripcion">Subscripción</option>
                 <option value="Compra">Compra</option>
               </select>
             </div>
           </div>
 
-          <div class="fila">
-            <div class="columna">
-              <label for="tiempo">Tiempo</label>
-              <select id="tiempo" class="form-control">
+          <div class="fila flex content-space-between items-center gap-[15px]">
+            <div class="columna flex-2">
+              <label
+                for="tiempo"
+                class="font-serif select-none font-bold mb-[5px] block"
+                >Tiempo</label
+              >
+              <select
+                id="tiempo"
+                class="form-control w-full text-black bg-white border border-solid border-white w-full p-[5px] rounded-sm text-base box-border"
+              >
                 <option value="1 mes">1 mes</option>
                 <option value="3 meses">3 meses</option>
                 <option value="5 meses">5 meses</option>
               </select>
             </div>
-            <div class="columna">
-              <label for="precio">Precio</label>
-              <input type="number" id="precio" class="form-control" required />
+            <div class="columna flex-2">
+              <label
+                for="precio"
+                class="font-serif select-none font-bold mb-[5px] block"
+                >Precio</label
+              >
+              <input
+                type="number"
+                id="precio"
+                class="form-control w-full text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white"
+                required
+              />
             </div>
           </div>
 
-          <div class="fila">
-            <div class="columna">
+          <div class="fila flex content-space-between items-center gap-[15px]">
+            <div class="columna flex-2">
               <input
                 type="text"
                 id="imagen"
-                class="form-control"
+                class="form-control text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white"
                 placeholder="URL de la imagen"
                 required
               />
             </div>
           </div>
 
-          <div class="fila-boton">
-            <button type="submit" id="btn-guardar" class="btn-guardar">
+          <div class="fila-boton flex justify-end">
+            <button
+              type="submit"
+              id="btn-guardar"
+              class="btn-guardar bg-white text-black p-[6px_15px] border-none rounded-sm cursor-pointer"
+            >
               Guardar
             </button>
           </div>
@@ -88,16 +133,25 @@
       </div>
 
       <!-- Tabla para visualizar registros -->
-      <div class="crud-table">
-        <table>
-          <thead>
+      <div
+        class="crud-table w-full max-w-[600px] my-[20px] mx-auto p-[3px] flex flex-col items-center content-center bg-black rounded-xl shadow-[0_0_10px_rgba(255,255,255,0.5)] overflow-x-auto text-ellipsis text-white"
+      >
+        <table class="w-full border-collapse">
+          <thead class="bg-white font-bold text-black">
             <tr>
-              <th>Regalo</th>
+              <th
+                class="rounded-tl-lg p-[10px] text-left overflow-hidden whitespace-nowrap max-w-[150px] w-[100px] text-ellipsis"
+              >
+                Regalo
+              </th>
               <th>Tipo</th>
               <th>Tiempo</th>
-              <th>Precio</th>
-              <th id="edit-button"></th>
-              <th id="delete-button"></th>
+              <th class="max-w-[100px] w-[100px] text-ellipsis ">Precio</th>
+              <th id="edit-button" class="max-w-[30px] max-h-[30px]"></th>
+              <th
+                id="delete-button"
+                class="rounded-tr-lg max-w-[30px] max-h-[30px]"
+              ></th>
             </tr>
           </thead>
           <tbody id="data-table"></tbody>

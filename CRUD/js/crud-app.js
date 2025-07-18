@@ -38,6 +38,34 @@ window.mostrarModal = (id) => {
     myModal.show();
 }
 
+function aplicarBordesRedondeados() {
+  const tbody = document.querySelector(".crud-table tbody");
+  const filas = tbody.querySelectorAll("tr");
+
+  // Limpiar clases anteriores
+  filas.forEach((fila) => {
+    const celdas = fila.querySelectorAll("td");
+    if (celdas.length > 0) {
+      celdas[0].classList.remove("rounded-bl-lg");
+      celdas[celdas.length - 1].classList.remove("rounded-br-lg");
+    }
+  });
+
+  // Aplicar a la última fila (si existe)
+  const ultimaFila = filas[filas.length - 1];
+  if (ultimaFila) {
+    const celdas = ultimaFila.querySelectorAll("td");
+    if (celdas.length > 0) {
+      celdas[0].classList.add("rounded-bl-lg");
+      celdas[celdas.length - 1].classList.add("rounded-br-lg");
+      //dale una checadita luego a esto, se puede mejorar
+      celdas.forEach((celda) => {
+        celda.classList.remove("border-b", "border-b-white");
+      });
+    }
+  }
+}
+
 const checkTipo = (modal) => {
     // Habilita el campo antes de actualizarlo
     if (modal) {
@@ -82,6 +110,7 @@ const giftUpdate = (event) => {
     datos[index].imagen = document.querySelector("#edit-imagen").value;
 
     cargarTabla();
+    
     myModal.hide();
 
 }
@@ -101,16 +130,18 @@ const cargarTabla = () => {
         } else {
             precioFormateado = item.precio;
         }
-        const celdas = `<td>${item.gift}</td>
-            <td>${item.tipo}</td>
-            <td>${item.tiempo}</td>
-            <td>${precioFormateado}</td>
-            <td><img src="media/edit.png" alt="edit-button" onclick="mostrarModal(${item.id})"></td>
-            <td><img src="media/delete.png" alt="delete-button" onclick="eliminarGiftCard(${item.id})"></td>  
+        const celdas = `<td class="bg-[#0e0e0e] text-white bl-white border-b border-b-white">${item.gift}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white">${item.tipo}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white">${item.tiempo}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white">${precioFormateado}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white"><img src="media/edit.png" alt="edit-button" onclick="mostrarModal(${item.id})"></td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white"><img src="media/delete.png" alt="delete-button" onclick="eliminarGiftCard(${item.id})"></td>  
         `;
         fila.innerHTML = celdas;
         dataTable.appendChild(fila);
     });
+
+    aplicarBordesRedondeados(); // Aplicar bordes redondeados a la última fila
 }
 
 const agregarGiftCard = (event) => {
