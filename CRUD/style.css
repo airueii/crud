@@ -165,7 +165,7 @@ body.modal-open {
   border-bottom-right-radius: 12px;
 }
 
-/* table elements [☑️⌚][☑️⌚][☑️⌚]  */
+/* table elements [☑️☑️][☑️☑️][☑️☑️]  */
 .crud-table th,
 .crud-table td {
   padding: 10px;
@@ -185,7 +185,7 @@ body.modal-open {
   width: 100px;
   text-overflow: ellipsis;
 }
-/* ⌚⌚⌚ */
+/* table inside borders☑️☑️☑️ */
 .crud-table td {
   background-color: #0e0e0e;
   color: white;
@@ -196,7 +196,7 @@ body.modal-open {
 .crud-table tr:not(:last-child) {
   border-bottom: 1px solid #fff;
 }
-/* table buttons */
+/* table buttons ☑️ */
 .crud-table img {
   filter: invert(1);
   width: 30px;

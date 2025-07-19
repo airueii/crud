@@ -39,32 +39,41 @@ window.mostrarModal = (id) => {
 }
 
 function aplicarBordesRedondeados() {
-  const tbody = document.querySelector(".crud-table tbody");
-  const filas = tbody.querySelectorAll("tr");
+    const tbody = document.querySelector(".crud-table tbody");
+    const filas = tbody.querySelectorAll("tr");
 
-  // Limpiar clases anteriores
-  filas.forEach((fila) => {
-    const celdas = fila.querySelectorAll("td");
-    if (celdas.length > 0) {
-      celdas[0].classList.remove("rounded-bl-lg");
-      celdas[celdas.length - 1].classList.remove("rounded-br-lg");
-    }
-  });
+    // Limpiar clases anteriores
+    filas.forEach((fila) => {
+        const celdas = fila.querySelectorAll("td");
+        if (celdas.length > 0) {
+        celdas[0].classList.remove("rounded-bl-lg");
+        celdas[celdas.length - 1].classList.remove("rounded-br-lg");
+        }
+    });
 
-  // Aplicar a la última fila (si existe)
-  const ultimaFila = filas[filas.length - 1];
-  if (ultimaFila) {
-    const celdas = ultimaFila.querySelectorAll("td");
-    if (celdas.length > 0) {
-      celdas[0].classList.add("rounded-bl-lg");
-      celdas[celdas.length - 1].classList.add("rounded-br-lg");
-      //dale una checadita luego a esto, se puede mejorar
-      celdas.forEach((celda) => {
-        celda.classList.remove("border-b", "border-b-white");
-      });
+    // Aplicar a la última fila (si existe)
+    const ultimaFila = filas[filas.length - 1];
+    if (ultimaFila) {
+        const celdas = ultimaFila.querySelectorAll("td");
+        if (celdas.length > 0) {
+        celdas[0].classList.add("rounded-bl-lg");
+        celdas[celdas.length - 1].classList.add("rounded-br-lg");
+        //dale una checadita luego a esto, se puede mejorar
+        celdas.forEach((celda) => {
+            celda.classList.remove("border-b", "border-b-white");
+        });
+        }
     }
-  }
+
+    //   verificar si existen elementos en la tabla
+    const tabla = document.querySelector(".crud-table");
+    if (tbody.children.length === 0) {
+        tabla.classList.add("hidden");
+    } else {
+        tabla.classList.remove("hidden");
+    }
 }
+
 
 const checkTipo = (modal) => {
     // Habilita el campo antes de actualizarlo
@@ -84,11 +93,16 @@ const checkTipo = (modal) => {
         }
     } else if (!modal) {
         document.querySelector("#tiempo").disabled = false;
+        document.querySelector("#tiempo").classList.remove("bg-gray-600", "text-gray-800");
+        document.querySelector("#tiempo").classList.add("bg-white", "text-black", "border", "border-solid", "border-white");
 
         if (document.querySelector("#tipo").value === "Compra") {
             tiempo = document.querySelector("#tiempo").value;
             document.querySelector("#tiempo").disabled = true;
             document.querySelector("#tiempo").value = "";
+            // ponerlo de color gris con tailwind playcdn
+            document.querySelector("#tiempo").classList.remove("bg-white", "text-black", "border", "border-solid", "border-white");
+            document.querySelector("#tiempo").classList.add("bg-gray-600", "text-gray-800");
         } else {
             if (tiempo !== null) {
                 document.querySelector("#tiempo").value = tiempo;
@@ -130,12 +144,12 @@ const cargarTabla = () => {
         } else {
             precioFormateado = item.precio;
         }
-        const celdas = `<td class="bg-[#0e0e0e] text-white bl-white border-b border-b-white">${item.gift}</td>
-            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white">${item.tipo}</td>
-            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white">${item.tiempo}</td>
-            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white">${precioFormateado}</td>
-            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white"><img src="media/edit.png" alt="edit-button" onclick="mostrarModal(${item.id})"></td>
-            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white"><img src="media/delete.png" alt="delete-button" onclick="eliminarGiftCard(${item.id})"></td>  
+        const celdas = `<td class="bg-[#0e0e0e] text-white bl-white border-b border-b-white p-[10px] text-left whitespace-nowrap overflow-hidden max-w-[150px] w-[100px] text-ellipsis">${item.gift}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white p-[10px] text-left whitespace-nowrap overflow-hidden ">${item.tipo}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white p-[10px] text-left whitespace-nowrap overflow-hidden ">${item.tiempo}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white p-[10px] text-left whitespace-nowrap overflow-hidden max-w-[100px] w-[100px] text-ellipsis">${precioFormateado}</td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white p-[10px] text-left whitespace-nowrap overflow-hidden "><img src="media/edit.png" alt="edit-button" onclick="mostrarModal(${item.id})" class="invert max-w-[30px] max-h-[30px] block mx-auto cursor-pointer"></td>
+            <td class="bg-[#0e0e0e] text-white bl-white border-l border-l-white border-b border-b-white p-[10px] text-left whitespace-nowrap overflow-hidden "><img src="media/delete.png" alt="delete-button" onclick="eliminarGiftCard(${item.id})" class="invert max-w-[30px] max-h-[30px] block mx-auto cursor-pointer"></td>  
         `;
         fila.innerHTML = celdas;
         dataTable.appendChild(fila);
@@ -153,6 +167,10 @@ const agregarGiftCard = (event) => {
     let tiempo = document.querySelector("#tiempo").value;
     let precio = parseFloat(document.querySelector("#precio").value);
     let imagen = document.querySelector("#imagen").value;
+    
+    document.querySelector("#tiempo").disabled = false;
+    document.querySelector("#tiempo").classList.remove("bg-gray-600", "text-gray-800");
+    document.querySelector("#tiempo").classList.add("bg-white", "text-black", "border", "border-solid", "border-white");
 
     datos.push(new GiftCard(id, gift, tipo, tiempo, precio, imagen));
     document.querySelector("#crud-form").reset();
