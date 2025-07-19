@@ -29,14 +29,14 @@
 
       <!-- Título principal -->
       <div
-        class="title text-white text-[2rem] font-bold tracking-[2px] text-glow select-none mx-auto flex justify-center items-center"
+        class="title text-white text-[2rem] font-bold tracking-[2px] text-glow select-none mx-auto flex justify-center items-center max-[600px]:overflow-x-auto max-[600px]:min-w-[400px]"
       >
         CRUD
       </div>
 
       <!-- Formulario de registro -->
       <div
-        class="crud-form w-full min-w-[600px] max-w-[600px] mx-auto my-[20px] bg-[#2c2c2c] border-[3px] border-black rounded-xl overflow-hidden shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+        class="crud-form w-full min-w-[600px] max-w-[600px] mx-auto my-[20px] bg-[#2c2c2c] border-[3px] border-black rounded-xl overflow-hidden shadow-[0_0_10px_rgba(255,255,255,0.5)] max-[600px]:overflow-x-auto max-[600px]:min-w-[400px]"
       >
         <h3
           class="text-[1.17em] font-semibold mt-[18.720px] block text-white p-[0_15px_15px_15px] mb-[0] border-b border-b-[rgb(167,159,159)] select-none"
@@ -47,7 +47,9 @@
           id="crud-form"
           class="mt-0 p-[20px] font-sans text-white bg-[#0e0e0e] flex flex-col gap-[15px]"
         >
-          <div class="fila flex content-space-between items-center gap-[15px]">
+          <div
+            class="fila flex content-space-between items-center gap-[15px] max-[600px]:flex-col"
+          >
             <div class="columna flex-2">
               <label
                 for="gift"
@@ -57,7 +59,7 @@
               <input
                 type="text"
                 id="gift"
-                class="form-control w-full text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white"
+                class="form-control w-full text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
                 required
               />
             </div>
@@ -69,7 +71,7 @@
               >
               <select
                 id="tipo"
-                class="form-control w-full text-black bg-white border border-solid border-white w-full p-[5px] rounded-sm text-base box-border"
+                class="form-control w-full text-black bg-white border border-solid border-white w-full p-[5px] rounded-sm text-base box-border max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
               >
                 <option value="Subscripcion">Subscripción</option>
                 <option value="Compra">Compra</option>
@@ -77,7 +79,9 @@
             </div>
           </div>
 
-          <div class="fila flex content-space-between items-center gap-[15px]">
+          <div
+            class="fila flex content-space-between items-center gap-[15px] max-[600px]:flex-col"
+          >
             <div class="columna flex-2">
               <label
                 for="tiempo"
@@ -86,7 +90,7 @@
               >
               <select
                 id="tiempo"
-                class="form-control w-full text-black bg-white border border-solid border-white w-full p-[5px] rounded-sm text-base box-border"
+                class="form-control w-full text-black bg-white border border-solid border-white w-full p-[5px] rounded-sm text-base box-border max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
               >
                 <option value="1 mes">1 mes</option>
                 <option value="3 meses">3 meses</option>
@@ -102,18 +106,20 @@
               <input
                 type="number"
                 id="precio"
-                class="form-control w-full text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white"
+                class="form-control w-full text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
                 required
               />
             </div>
           </div>
 
-          <div class="fila flex content-space-between items-center gap-[15px]">
+          <div
+            class="fila flex content-space-between items-center gap-[15px] max-[600px]:flex-col"
+          >
             <div class="columna flex-2">
               <input
                 type="text"
                 id="imagen"
-                class="form-control text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white"
+                class="form-control text-black bg-white w-full p-[5px] rounded-sm text-base box-border border border-solid border-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
                 placeholder="URL de la imagen"
                 required
               />
@@ -134,19 +140,19 @@
 
       <!-- Tabla para visualizar registros -->
       <div
-        class="crud-table w-full max-w-[600px] my-[20px] mx-auto p-[3px] flex flex-col items-center content-center bg-black rounded-xl shadow-[0_0_10px_rgba(255,255,255,0.5)] overflow-x-auto text-ellipsis text-white"
+        class="crud-table w-full max-w-[600px] my-[20px] mx-auto p-[3px] flex flex-col items-center content-center bg-black rounded-xl shadow-[0_0_10px_rgba(255,255,255,0.5)] overflow-x-auto text-ellipsis text-white max-[600px]:overflow-x-auto max-[600px]:min-w-[400px]"
       >
         <table class="w-full border-collapse">
           <thead class="bg-white font-bold text-black">
             <tr>
               <th
-                class="rounded-tl-lg p-[10px] text-left overflow-hidden whitespace-nowrap max-w-[150px] w-[100px] text-ellipsis"
+                class="rounded-tl-lg p-[10px] text-left overflow-hidden whitespace-nowrap max-w-[150px] w-[100px] text-ellipsis "
               >
                 Regalo
               </th>
               <th>Tipo</th>
               <th>Tiempo</th>
-              <th class="max-w-[100px] w-[100px] text-ellipsis ">Precio</th>
+              <th class="max-w-[100px] w-[100px] min-w[100px] text-ellipsis">Precio</th>
               <th id="edit-button" class="max-w-[30px] max-h-[30px]"></th>
               <th
                 id="delete-button"
@@ -160,67 +166,104 @@
     </div>
 
     <!-- Modal para editar gift card -->
-    <div class="modal" id="modal-gift">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Editar Gift Card</h3>
-          <span class="close" onclick="ocultarModal()">&times;</span>
+    <div
+      class="modal fixed z-[1] left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] opacity-0 invisible transition-opacity duration-200 ease-in-out"
+      id="modal-gift"
+    >
+      <div
+        class="modal-content bg-[#2c2c2c] my-[15%] mx-auto pt-[10px] w-[80%] max-w-[600px] border-[3px] border-black rounded-xl shadow-[0_0_10px_rgba(255,255,255,0.5)] select-none"
+      >
+        <div
+          class="modal-header flex py-[5px] px-[10px] justify-between items-center"
+        >
+          <h3 class="m-0 text-white flex-1">Editar Gift Card</h3>
+          <span
+            class="close text-2xl font-bold text-white cursor-pointer hover:text-black focus:text-black hover:no-underline focus:no-underline"
+            onclick="ocultarModal()"
+            >&times;</span
+          >
         </div>
-        <div class="modal-body">
-          <form id="formModal">
-            <div class="fila">
-              <div class="columna">
-                <label for="edit-gift">Gift</label>
+        <div
+          class="modal-body p-[20px] bg-[#0e0e0e] text-white border-t border-t-[#fff]"
+        >
+          <form id="formModal" class="flex flex-col gap-[15px]">
+            <div
+              class="fila flex content-space-between items-center gap-[15px] max-[600px]:flex-col"
+            >
+              <div class="columna flex-2">
+                <label for="edit-gift" class="block mb-[5px] font-bold"
+                  >Gift</label
+                >
                 <input
                   type="text"
                   id="edit-gift"
-                  class="form-control"
+                  class="form-control font-sans w-full p-[5px] font-[1rem] rounded-sm border border-solid border-white box-border text-black bg-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
                   required
                 />
               </div>
-              <div class="columna">
-                <label for="edit-tipo">Tipo</label>
-                <select id="edit-tipo" class="form-control">
+              <div class="columna flex-2">
+                <label for="edit-tipo" class="block mb-[5px] font-bold"
+                  >Tipo</label
+                >
+                <select
+                  id="edit-tipo"
+                  class="form-control font-sans w-full p-[5px] font-[1rem] rounded-sm border border-solid border-white box-border text-black bg-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
+                >
                   <option value="Subscripcion">Subscripción</option>
                   <option value="Compra">Compra</option>
                 </select>
               </div>
             </div>
 
-            <div class="fila">
-              <div class="columna">
-                <label for="edit-tiempo">Tiempo</label>
-                <select id="edit-tiempo" class="form-control">
+            <div
+              class="fila flex content-space-between items-center gap-[15px] max-[600px]:flex-col"
+            >
+              <div class="columna flex-2">
+                <label for="edit-tiempo" class="block mb-[5px] font-bold"
+                  >Tiempo</label
+                >
+                <select
+                  id="edit-tiempo"
+                  class="form-control font-sans w-full p-[5px] font-[1rem] rounded-sm border border-solid border-white box-border text-black bg-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
+                >
                   <option value="1 mes">1 mes</option>
                   <option value="3 meses">3 meses</option>
                   <option value="5 meses">5 meses</option>
                 </select>
               </div>
-              <div class="columna">
-                <label for="edit-precio">Precio</label>
+              <div class="columna flex-2">
+                <label for="edit-precio" class="block mb-[5px] font-bold"
+                  >Precio</label
+                >
                 <input
                   type="number"
                   id="edit-precio"
-                  class="form-control"
+                  class="form-control font-sans w-full p-[5px] font-[1rem] rounded-sm border border-solid border-white box-border text-black bg-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
                   required
                 />
               </div>
             </div>
 
-            <div class="fila">
-              <div class="columna">
+            <div
+              class="fila flex content-space-between items-center gap-[15px] max-[600px]:flex-col"
+            >
+              <div class="columna flex-2">
                 <input
                   type="text"
                   id="edit-imagen"
-                  class="form-control"
+                  class="form-control font-sans w-full p-[5px] font-[1rem] rounded-sm border border-solid border-white box-border text-black bg-white max-[600px]:min-w-[300px] max-[600px]:max-w-[100px] max-[600px]:w-[100px] max-[600px]:text-base box-border"
                   placeholder="URL de la imagen"
                   required
                 />
               </div>
             </div>
 
-            <div class="fila-boton">
-              <button type="submit" id="btn-edit" class="btn-guardar">
+            <div class="fila-boton mt-[10px] flex justify-end">
+              <button
+                type="submit"
+                id="btn-edit"
+                class="btn-guardar font-sans bg-white text-black p-[6px_15px] border-none rounded-sm cursor-pointer border border-solid border-white transition duration-300 ease-in-out hover:bg-black hover:text-white hover:border-gray-300"
+              >
                 Actualizar
               </button>
             </div>

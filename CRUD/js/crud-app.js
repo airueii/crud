@@ -8,17 +8,20 @@ const myModal = document.getElementById("modal-gift");
 let idGiftUpdate = null; // Variable para almacenar el ID de la gift card a actualizar
 let tiempo = null; // Variable para almacenar el tiempo de la gift card
 
-myModal.show = function() {
-    this.classList.add("backdrop-opacity-[1]", "visible"); // Se ve con transición
+myModal.show = function () {
+    this.classList.remove("opacity-0", "invisible");
+    this.classList.add("opacity-100", "visible");
     document.body.classList.add("overflow-hidden");
 };
 
-myModal.hide = function() {
+myModal.hide = function () {
     // limpiar idGiftUpdate
-    idGiftUpdate = null;
-    this.classList.remove("show"); // Se oculta con transición
-    document.body.classList.remove("modal-open");
+    idGiftUpdate = null; 
+    this.classList.remove("opacity-100", "visible");
+    this.classList.add("opacity-0", "invisible");
+    document.body.classList.remove("overflow-hidden");
 };
+
 
 window.ocultarModal = () => {
     myModal.hide();
